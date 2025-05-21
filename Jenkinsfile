@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = 'suneel00/movie-app'
-    DOCKER_TAG = 'v3'
+    DOCKER_TAG = 'v4'
   }
 
   stages {
