@@ -39,7 +39,7 @@ pipeline {
       steps {
         sshagent(['ec2-deploy-key']) {
           sh '''
-ssh -o StrictHostKeyChecking=no ubuntu@54.164.33.163 <<EOF
+ssh -o StrictHostKeyChecking=no ubuntu@3.82.97.25 <<EOF
 docker stop movie-app || true
 docker rm movie-app || true
 PID=$(lsof -t -i:8083) && [ -n "$PID" ] && kill -9 $PID || true
