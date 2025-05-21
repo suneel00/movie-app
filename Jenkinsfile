@@ -3,7 +3,7 @@ pipeline {
 
   environment {
     DOCKER_IMAGE = 'suneel00/movie-app'
-    DOCKER_TAG = 'v2'
+    DOCKER_TAG = 'v3'
   }
 
   stages {
@@ -43,7 +43,7 @@ ssh -o StrictHostKeyChecking=no ubuntu@34.230.42.38 <<EOF
 docker stop movie-app || true
 docker rm movie-app || true
 PID=$(lsof -t -i:8083) && [ -n "$PID" ] && kill -9 $PID || true
-docker run -d -p 8083:8083 --name movie-app suneel00/movie-app:v1
+docker run -d -p 8083:8083 --name movie-app suneel00/movie-app:$DOCKER_TAG
 EOF
           '''
         }
